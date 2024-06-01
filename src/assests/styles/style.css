@@ -1,0 +1,16 @@
+:root {
+    --blue: 0, 238, 255;
+}
+
+.c-bleu {
+    color: rgb(var(--blue));
+}
+
+.bg_card {
+    background: rgba(var(--blue), .5);
+}
+
+.shadow {
+    border: none;
+    filter: drop-shadow(0px 4px 1.5px black);
+}
