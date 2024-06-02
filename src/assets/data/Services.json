@@ -1,0 +1,24 @@
+[
+    {
+        "Back": [
+            "php",
+            "laravel",
+            "Nestjs"
+        ],
+        "Front": [
+            "html ",
+            "css ",
+            "bootstrap",
+            "tailwind",
+            "js ",
+            "reactjs"
+        ],
+        "Mobile": [
+            "react native"
+        ],
+        "DataBase": [
+            "MySQL",
+            "mongodb compass"
+        ]
+    }
+]
