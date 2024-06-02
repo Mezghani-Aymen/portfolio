@@ -1,24 +1,39 @@
 [
     {
-        "Back": [
-            "php",
-            "laravel",
-            "Nestjs"
-        ],
-        "Front": [
+        "key": 1,
+        "title": "🖥️ Front-End Development",
+        "skills": [
             "html ",
             "css ",
             "bootstrap",
             "tailwind",
             "js ",
             "reactjs"
-        ],
-        "Mobile": [
-            "react native"
-        ],
-        "DataBase": [
+        ]
+    },
+    {
+        "key": 2,
+        "title": "🛠️ Back-End Development",
+        "skills": [
+            "php",
+            "laravel",
+            "Nestjs"
+        ]
+    },
+    {
+        "key": 3,
+        "title": "🗄️ Database Management",
+        "skills": [
             "MySQL",
             "mongodb compass"
+        ]
+    },
+    {
+        "key": 4,
+        "title": "📱Mobile Development",
+        "skills": [
+            "native",
+            "java"
         ]
     }
 ]
