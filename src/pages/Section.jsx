@@ -20,33 +20,38 @@ function Section(props) {
     }, [name]);
 
     useEffect(() => {
-        const getImages = async () => {
-            try {
-                const result = await fetchImages(data);
-                setImages(result);
-            } catch (error) {
-                console.error("Error fetching images : ", error);
-            }
+        if (name === "Projects" && data) {
+            const getImages = async () => {
+                try {
+                    const fetchedImages = await fetchImages(data);
+                    setImages(fetchedImages);
+                } catch (error) {
+                    console.error("Error fetching images: ", error);
+                }
+            };
+            getImages();
         }
-        getImages();
-    }, [data]);
-
+    }, [name, data]);
+    const className = name === "Projects" ?
+        "xl:p-6 p-4 grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1" :
+        "xl:p-6 p-4 grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1"
     return (
         <div className="container mx-auto  flex flex-col py-5">
             <h1 className="c-bleu text-center text-5xl mb-4">
                 {name}
             </h1>
-            <div className="xl:p-6 p-4 grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-                {data.map((value, index) => (
-                    <Cards
-                        key={index}
-                        type={name}
-                        title={value.title}
-                        links={value.links} //for project  type {}
-                        icon={value.icon || "a"} //for services  with type []
-                        imgSrc={images[index] || null} //for project 
-                    />
-                ))}
+            <div className={className}>
+                {
+                    data.map((value, index) => (
+                        < Cards
+                            key={index}
+                            type={name}
+                            title={value.title || Object.keys(value)[index]}
+                            links={value.links} //for project  type {}
+                            imgSrc={images[index]} //for project 
+                            skills={value.skills}
+                        />
+                    ))}
             </div>
         </div>
     );
