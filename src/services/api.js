@@ -30,7 +30,7 @@ export const fetchLogo = async (data, name) => {
         const iconList = iconFileContext.keys().map(key => key.substring(2));
         iconList.forEach(async item => {
             const index = list.indexOf(item.substring(0, item.lastIndexOf('.')));
-            const condition = name === "Projects" ? index != -1 : index == -1
+            const condition = name === "Projects" ? index !== -1 : index === -1
             if (condition) {
                 const icon = await import(`../assets/images/icons/${item}`);
                 iconObject[item.substring(0, item.lastIndexOf('.'))] = icon.default;
