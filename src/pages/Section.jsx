@@ -3,10 +3,11 @@ import Cards from '../components/Cards';
 import { fetchData, fetchImages } from "../services/api";
 
 function Section(props) {
-    const { name } = props;
+    const name = props.name;
+
     const [data, setData] = useState([]);
     const [images, setImages] = useState([]);
-
+    const [list, setList] = useState([])
     useEffect(() => {
         const getData = async () => {
             try {
@@ -17,6 +18,7 @@ function Section(props) {
             }
         };
         getData();
+        setList(["github", "details", "demo"])
     }, [name]);
 
     useEffect(() => {
@@ -36,7 +38,7 @@ function Section(props) {
         "xl:p-6 p-4 grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1" :
         "xl:p-6 p-4 grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1"
     return (
-        <div className="container mx-auto  flex flex-col py-5">
+        <div className="container mx-auto  flex flex-col py-5 ">
             <h1 className="c-bleu text-center text-5xl mb-4">
                 {name}
             </h1>
@@ -50,6 +52,7 @@ function Section(props) {
                             links={value.links} //for project  type {}
                             imgSrc={images[index]} //for project 
                             skills={value.skills}
+                            list={list}
                         />
                     ))}
             </div>
