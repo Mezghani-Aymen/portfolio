@@ -1,65 +1,49 @@
-import React from 'react'
-import Input from '../components/Input'
+import React from 'react';
+import Input from '../components/Input';
+import Buttons from '../components/Buttons';
 
 function Contact() {
-    const elements =
-        [{
+    const elements = [
+        {
             key: 0,
             type: "text",
+            id: "name",
             text: "Full name ",
-            resize: {
-                bool: false,
-                typeR: null
-            }
         },
         {
             key: 1,
             type: "text",
-            text: "Full name ",
-            resize: {
-                bool: false,
-                typeR: null
-            }
-        }
-            ,
+            id: "email",
+            text: "Email",
+        },
         {
             key: 2,
             type: "text",
+            id: "subject",
             text: "Subject",
-            resize: {
-                bool: false,
-                typeR: null
-            }
-        }
-            ,
+        },
         {
             key: 3,
-            type: "texteara",
-            text: "your message ",
-            resize:
-            {
-                bool: true,
-                typeR: "Hor" || "Ver"
-            }
+            type: "textarea", // Corrected type
+            id: "message",
+            text: "Your message ",
         }
-        ]
-
-    const size = {
-        width: "100px",
-        height: "30px",
-    }
+    ];
 
     return (
-        <div className='mt-24 container mx-auto '>
-            <h1 className='c-bleu text-center text-3xl'>Contact</h1>
-            <div>
-                {elements.map((item, index) => (
-                    <Input key={index} id={item.text} type={item.type} text={item.text} fix={item.resize} size={size} />
-                ))}
+        <div className='container mx-auto py-5'>
+            <h1 className='c-bleu text-center text-5xl'>Contact</h1>
+            <div className="container mx-auto mt-6 px-5 sm:w-1/2">
+                <form className='flex flex-col'>
+                    {elements.map((item) => (
+                        <Input key={item.key} id={item.id} type={item.type} text={item.text} />
+                    ))}
+                    <Buttons text={<span>Send</span>} className="btn-home glassmorphism py-2 px-11  w-auto  mx-auto mt-4" />
+                </form>
+
             </div>
         </div>
-
-    )
+    );
 }
 
 export default Contact
