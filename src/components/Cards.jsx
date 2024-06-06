@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchLogo } from "../services/api";
 import '../assets/styles/style.css';
 import NavItems from './NavItems';
-import Overlay from './Overlay';
+// import Overlay from './Overlay';
 import { click } from '@testing-library/user-event/dist/click';
 
 
@@ -55,7 +55,7 @@ function Cards(props) {
             }
             getLogo();
         }
-    }, [list,type]);
+    }, [list, type]);
 
     const arrayIcons = type === "Projects" ? Object.keys(links) : skills
     return (
