@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom'
 import { fetchLogo } from "../services/api";
 import '../assets/styles/style.css';
 import NavItems from './NavItems';
@@ -35,7 +34,7 @@ function Cards(props) {
         if (type === "Projects") {
             const getLogo = async () => {
                 try {
-                    const result = await fetchLogo(type, list);
+                    const result = await fetchLogo(list, type);
                     setlogo(result);
                 } catch (error) {
                     console.error("Error fetching images : ", error);
@@ -43,12 +42,12 @@ function Cards(props) {
             }
             getLogo();
         }
-    }, [type, list]);
+    }, [list, type]);
     useEffect(() => {
         if (type === "Services") {
             const getLogo = async () => {
                 try {
-                    const result = await fetchLogo(type, list);
+                    const result = await fetchLogo(list, type);
                     setlogo(result);
                 } catch (error) {
                     console.error("Error fetching images : ", error);
@@ -56,7 +55,7 @@ function Cards(props) {
             }
             getLogo();
         }
-    }, [type, list]);
+    }, [list,type]);
 
     const arrayIcons = type === "Projects" ? Object.keys(links) : skills
     return (
@@ -67,7 +66,7 @@ function Cards(props) {
                 </div>
             )}
             <h3 className='text-2xl mb-3 text-center mt-5 mx-2'>{title}</h3>
-            <ul className={`my-5 ${type === 'Projects' ? 'flex justify-evenly mt-5 w-full' : 'grid grid-cols-5 md:gap-6 md:grid-cols-8 gap-3'}`}>
+            <ul className={`my-5 ${type === 'Projects' ? 'flex justify-evenly mt-5 w-full' : 'grid grid-cols-5 md:gap-6 xl:grid-cols-8 md:grid-cols-6 gap-3'}`}>
                 {arrayIcons.map((key, index) => {
                     return (
                         <NavItems
