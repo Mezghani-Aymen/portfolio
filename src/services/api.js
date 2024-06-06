@@ -22,15 +22,16 @@ export const fetchImages = async (data) => {
     return imagesArray
 };
 
-export const fetchLogo = async (data, name) => {
+export const fetchLogo = async (...args) => {
+    const list = args[0]
+    const name = args[1]
     const iconObject = {};
     try {
-        const list = name === "Projects" ? Object.keys(data) : data
         const iconFileContext = require.context('../assets/images/icons/');
         const iconList = iconFileContext.keys().map(key => key.substring(2));
         iconList.forEach(async item => {
             const index = list.indexOf(item.substring(0, item.lastIndexOf('.')));
-            const condition = name === "Projects" ? index !== -1 : index === -1
+            const condition = name === "Services" ? index === -1 : index !== -1
             if (condition) {
                 const icon = await import(`../assets/images/icons/${item}`);
                 iconObject[item.substring(0, item.lastIndexOf('.'))] = icon.default;
@@ -40,6 +41,5 @@ export const fetchLogo = async (data, name) => {
     catch (error) {
         console.error("Error fetching image :", error);
     }
-
     return iconObject
 };
