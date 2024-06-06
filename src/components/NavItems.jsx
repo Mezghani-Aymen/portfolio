@@ -5,7 +5,7 @@ function NavItems(props) {
     const { type, href, active, children, value, action, shadow } = props;
     const className = (active ? "nav-link active " : "nav-link" && shadow ? " shadow" : "");
     const element = type === "link" && href !== "null" ?
-        <Link to={href} className={className}>{children || value}</Link>
+        <Link to={href} className={className} onClick={action}>{children || value}</Link>
         :
         action ? < a className="nav-link shadow" onClick={action} > {children} {value}</a>
             :
