@@ -3,12 +3,12 @@
         "key": 1,
         "title": "🖥️ Front-End Development",
         "skills": [
-            "html ",
-            "css ",
+            "html",
+            "css",
             "bootstrap",
             "tailwind",
-            "js ",
-            "reactjs"
+            "javascript",
+            "react"
         ]
     },
     {
@@ -17,22 +17,22 @@
         "skills": [
             "php",
             "laravel",
-            "Nestjs"
+            "nestjs"
         ]
     },
     {
         "key": 3,
         "title": "🗄️ Database Management",
         "skills": [
-            "MySQL",
-            "mongodb compass"
+            "sql",
+            "mongodb"
         ]
     },
     {
         "key": 4,
         "title": "📱Mobile Development",
         "skills": [
-            "native",
+            "react",
             "java"
         ]
     }
