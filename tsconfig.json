@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "jsx": "react",
+        "strict": true,
+        "esModuleInterop": true, // Ensure this is set to true
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowJs": true,
+        "baseUrl": "src",
+        "paths": {
+            "lib/*": [
+                "lib/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*",
+        "lib/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
