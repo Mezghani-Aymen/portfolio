@@ -10,6 +10,28 @@ module.exports = {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         grid: "grid 15s linear infinite",
       },
+      keyframes: {
+        "shine-pulse": {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          to: {
+            "background-position": "0% 0%",
+          },
+        },
+        grid: {
+          "0%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
+      },
     },
   },
   plugins: [],
