@@ -1,5 +1,10 @@
 {
     "compilerOptions": {
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/@types" 
+        ],
+        "moduleResolution": "node",
         "target": "es6",
         "module": "commonjs",
         "jsx": "react",
