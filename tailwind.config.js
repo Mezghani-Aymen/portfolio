@@ -6,11 +6,30 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        accent: '#A3C4E0',
+        secondary: '#F5E5D5',
+        primary: '#D76B30',
+        customAccentColor: '#A3C4E0',
+        customSecondaryColor: '#F5E5D5',
+        customPrimaryColor: '#D76B30',
+      },
       animation: {
+        orbit: "orbit calc(var(--duration)*1s) linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         grid: "grid 15s linear infinite",
       },
       keyframes: {
+        orbit: {
+          "0%": {
+            transform:
+              "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+          },
+        },
         "shine-pulse": {
           "0%": {
             "background-position": "0% 0%",
