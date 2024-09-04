@@ -2,8 +2,8 @@ import React from 'react';
 
 const Contact: React.FC = () => {
     return (
-        <div className="md:flex w-full container mx-auto rounded-lg p-6 mb-5  ">
-            <div className="flex-1 md:border-r md:border-b-0 border-b mb-5 pb-6 border-accentColor md:pr-5 md:mr-5">
+        <div className="md:flex w-full container mx-auto rounded-lg pt-[6rem] p-6 " id='contact'>
+            <div className="flex-1 md:border-r md:border-b-0 border-b mb-5 pb-6 border-accentColor md:pr-5 md:mr-5" data-aos="fade-right">
                 <h2 className="text-3xl font-semibold text-[#D76B30]" >Connect with me:</h2>
                 <p className="text-[#A3C4E0]">Satisfied with me? Please contact me</p>
                 <div className="flex mt-4">
@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
                 </div>
 
             </div>
-            <div className="flex-1 ">
+            <div className="flex-1 " data-aos="fade-left">
                 <h2 className="text-lg font-semibold text-[#A3C4E0]">Contact me, let's make magic together</h2>
                 <form className="mt-4 flex flex-col">
                     <div className="mb-4">
