@@ -42,3 +42,24 @@
     background-color: #D76B30;
 }
 
+.fade-out {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out.hidden {
+    opacity: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D76B30;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A3C4E0;
+}
+
