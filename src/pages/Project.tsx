@@ -17,13 +17,13 @@ const Projects = () => {
 
     return (
 
-        <section className="py-10 px-4 md:px-9 overflow-x-hidden ">
+        <section className="pt-[6rem] px-4 md:px-9 overflow-x-hidden " id="projects" data-aos="fade-down">
 
             <div className=" mx-auto text-left">
                 <h2 className="text-4xl font-bold mb-4 text-[#D76B30]">Featured Projects</h2>
                 <p className="mb-8 text-[#E0E0E0]">I have worked on many projects over the course of being a Web Developer, here are a few of my live, real-world projects.</p>
                 <div className="pe-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-                 gap-8">
+                 gap-8" data-aos="zoom-in-up">
                     {projectData.map((project, index) => (
                         <ProjectCard
                             key={index}
