@@ -15,7 +15,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, liveLink, githubLink, image }) => {
     return (
-        <MagicCard
+        <MagicCard 
             className="relative flex w-full flex-col items-center justify-center"
             gradientColor={"#f5e5d577"}
         >
