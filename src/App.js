@@ -1,29 +1,48 @@
 import './assets/css/tailwind.css';
-import React from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import { getNavigation } from './utils/navigation';
-// import Header from "./components/Header";
+import './assets/css/custom.css';
+import React, { useEffect, useState } from 'react';
+import Hero from "./pages/Hero";
+import Project from "./pages/Project";
+import Header from './components/Header';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Skills from './pages/Skills';
+import { Loading } from './components/Loading';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 
 function App() {
-  // const navigation = getNavigation();
+  const [data, setData] = useState(null);
+  const [isLoadingVisible, setIsLoadingVisible] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          setIsLoadingVisible(false)
+        }, 4000))
+      setData({ message: 'Data loaded!' });
+    };
+    fetchData();
+  }, [isLoadingVisible])
   return (
-    <></>
-    // <Router>
-    //   <Header links={navigation} />
-    //   < Routes >
-    //     {
-    //       navigation.map((item, index) => (
-    //         <Route
-    //           key={index}
-    //           path={item.path}
-    //           element={<item.layout />}
-    //         />
-    //       ))
-    //     }
-    //   </Routes>
-
-    // </Router >
+    <>
+      {isLoadingVisible ? (
+        <Loading />
+      ) : (
+        <>
+          <Header />
+          <Hero />
+          <About />
+          <Project />
+          <Skills />
+          <Contact />
+          <ScrollToTopButton />
+        </>
+      )}
+    </>
+    // <LoadingProvider>
+    // <MainContent />
+    // </LoadingProvider>
   );
 }
 
