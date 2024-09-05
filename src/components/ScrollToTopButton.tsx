@@ -15,7 +15,7 @@ const ScrollToTopButton = () => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Smooth scroll to top
+            behavior: 'smooth'
         });
     };
 
@@ -29,7 +29,7 @@ const ScrollToTopButton = () => {
     return (
         <button
             onClick={scrollToTop}
-            className={`w-[45px] h-[45px] z-20 hidden sm:fixed bottom-5 right-5 rounded-full bg-primary text-white shadow-lg transition-opacity duration-300 justify-center items-center ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`hover:bg-accent hover:text-primary w-[45px] h-[45px] z-20 hidden sm:fixed bottom-5 right-5 rounded-full bg-primary text-white shadow-lg transition-opacity duration-300 justify-center items-center ${isVisible ? 'opacity-100' : 'opacity-0'}`}
             style={{ display: isVisible ? 'flex' : 'none' }} // Hide when not visible
         >
             ↑
