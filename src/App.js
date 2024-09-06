@@ -29,15 +29,17 @@ function App() {
       {isLoadingVisible ? (
         <Loading />
       ) : (
-        <>
-          <Header />
-          <Hero />
-          <About />
-          <Project />
-          <Skills />
-          <Contact />
-          <ScrollToTopButton />
-        </>
+        <div className="overflow-x-hidden" >
+          <>
+            <Header />
+            <Hero />
+            <About />
+            <Project />
+            <Skills />
+            <Contact />
+            <ScrollToTopButton />
+          </>
+        </div >
       )}
     </>
     // <LoadingProvider>

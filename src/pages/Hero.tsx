@@ -46,7 +46,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <div id="bg-hero" className='h-full  ' data-aos="zoom-out" data-aos-delay="200">
+        <div id="bg-hero" className='h-full pt-[5rem] ' data-aos="zoom-out" data-aos-delay="200">
             <div className="flex w-full  items-center justify-around flex-wrap p-0 lg:pt-12 px-5 gap-6 ">
                 <div className='flex flex-col items-start  text-white md:w-2/4 py-5' data-aos="zoom-out-right" data-aos-delay="400">
                     < h1 className="text-3xl mb-3" >

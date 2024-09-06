@@ -18,7 +18,7 @@ const Header = () => {
         handleLinkClick(); 
     };
     return (
-        <header className="w-screen p-6 sticky top-0 z-20 bg-black">
+        <header className="w-screen p-6 fixed top-0 z-20 bg-black">
             <div className=" flex justify-between items-center ">
                 <h1 className="text-white text-3xl underline-half">
                     <span className=" text-[#D76B30]">P</span>

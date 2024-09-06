@@ -21,7 +21,7 @@ const Projects = () => {
             <div className=" mx-auto text-left" data-aos="fade-down">
                 <h2 className="text-4xl font-bold mb-4 text-[#D76B30]">Featured Projects</h2>
                 <p className="mb-8 text-[#E0E0E0]">I have worked on many projects over the course of being a Web Developer, here are a few of my live, real-world projects.</p>
-                <div className="pe-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+                <div className="pe-0 sm:pe-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
                  gap-8" data-aos="zoom-in-up">
                     {projectData.map((project, index) => (
                         <ProjectCard
