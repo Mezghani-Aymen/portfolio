@@ -1,5 +1,27 @@
 import Input from 'components/Input';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faComments } from '@fortawesome/free-solid-svg-icons';
+
+const SocialMediaIcons = () => {
+    return (
+        <div className="flex space-x-4">
+            <a href="https://www.facebook.com/MezghaniMohamedAymen" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebook} className="text-[#F5E5D5] opacity-60 hover:opacity-100 " size="2x" />
+            </a>
+            <a href="tel:+21626236016" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faComments} className="text-[#F5E5D5] opacity-60 hover:opacity-100" size="2x" />
+            </a>
+            <a href="https://www.linkedin.com/in/mezghani-med-aymen/" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faLinkedin} className="text-[#F5E5D5] opacity-60 hover:opacity-100" size="2x" />
+            </a>
+            <a href="https://github.com/Mezghani-Aymen" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faGithub} className="text-[#F5E5D5] opacity-60 hover:opacity-100" size="2x" />
+            </a>
+        </div>
+    );
+};
 
 const Contact: React.FC = () => {
     const inputs = [
@@ -14,15 +36,7 @@ const Contact: React.FC = () => {
                 <h2 className="text-3xl font-semibold text-[#D76B30]" >Connect with me:</h2>
                 <p className="text-[#A3C4E0]">Satisfied with me? Please contact me</p>
                 <div className="flex mt-4">
-                    <a href="#" className="mr-2">
-                        <img src="" alt="" className="w-8" />
-                    </a>
-                    <a href="#" className="mr-2">
-                        <img src="linkedin-logo.png" alt="LinkedIn" className="w-8" />
-                    </a>
-                    <a href="sms:+1234567890">
-                        <img src="sms-logo.png" alt="SMS" className="w-8" />
-                    </a>
+                    <SocialMediaIcons />
                 </div>
 
             </div>
