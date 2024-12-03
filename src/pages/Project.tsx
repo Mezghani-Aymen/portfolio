@@ -2,16 +2,25 @@
 import React from 'react';
 import ProjectCard from '../components/Cards';
 //@ts-ignore
-import x from '../assets/images/mtx.png'
+import MTC from '../assets/images/MTC.png'
+//@ts-ignore
+import codeSell from '../assets/images/codeSell.png'
 
 const Projects = () => {
     const projectData = [
         {
             title: 'Microsoft Tech Club Sfax-ISIMS',
-            description: 'A live geolocation app for finding tweets and twitter users around you.',
-            liveLink: '',
-            githubLink: 'https://github.com/Mezghani-Aymen/MTC-website-Project_Club',
-            image: 'mtx.png',
+            description: 'Developed an interactive website for MTC-ISIMS, designed to promote the club\'s activities, enhance community engagement, and streamline the registration process for events and memberships.',
+            liveLink: 'https://mezghani-aymen.github.io/MTC-landing-page/',
+            githubLink: 'https://github.com/Mezghani-Aymen/MTC-landing-page',
+            image: MTC,
+        },
+        {
+            title: 'CodeSell',
+            description: 'Landing page was designed and developed to promote and facilitate the registration process for the hackathon organized by Microsoft Tech Club ISIM-Sfax',
+            liveLink: 'https://mezghani-aymen.github.io/CodeSell/',
+            githubLink: 'https://github.com/Mezghani-Aymen/CodeSell',
+            image: codeSell,
         }
     ];
 
