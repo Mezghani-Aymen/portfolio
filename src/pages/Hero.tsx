@@ -5,6 +5,7 @@ import DOTS from 'vanta/src/vanta.dots';
 import image from '../assets/images/mezghani_mohamedAymen.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import MyCV from '../assets/data/cv.pdf'
 
 import WordRotate from "../@/components/magicui/word-rotate";
 export function WordRotateDemo(props: { class: string; text: string[] }) {
@@ -62,7 +63,7 @@ const Hero = () => {
                         I am a passionate full-stack developer skilled in building web applications from start to finish. I have hands-on experience with front-end technologies as well as back-end frameworks .I enjoy learning new technologies and am eager to contribute to a team where I can continue to grow and make a positive impact.
                     </p>
                     <div className="flex justify-center gap-4 mt-4">
-                        <a href='' className="bg-[#D76B30] text-white py-2 px-4 rounded hover:bg-[#D76B30]" data-aos-delay="300" data-aos="fade-up">Download CV</a>
+                        <a href={MyCV} className="bg-[#D76B30] text-white py-2 px-4 rounded hover:bg-[#D76B30]" data-aos-delay="300" data-aos="fade-up" download="MezghaniMohamedAymen.pdf" >Download CV</a>
                         <a href="#projects" className="bg-white text-[#D76B30] py-2 px-4 rounded hover:bg-[#F5E5D5]" data-aos-delay="300" data-aos="fade-up">Projects</a>
                     </div>
                 </div >
