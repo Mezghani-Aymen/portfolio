@@ -44,7 +44,7 @@ const Hero = () => {
         return () => {
             if (dots) dots.destroy();
         };
-    }, []);
+    }, [dots]);
 
     return (
         <div id="bg-hero" className='h-full pt-[5rem] ' data-aos="zoom-out" data-aos-delay="200">
