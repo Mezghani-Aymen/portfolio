@@ -21,8 +21,9 @@ const Hero = () => {
     useEffect(() => {
         AOS.init({ duration: 1000 }); // Initialize AOS
     }, []);
+    
     const [dots, setDots] = useState<any>(null);
-    const wordsArray = ["Front-end", "Back-end", "Fullstack", "Mobile"];
+    const wordsArray = ["Front-end", "Back-end", "Fullstack"];
 
     useEffect(() => {
         if (!dots) {
