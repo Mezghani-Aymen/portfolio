@@ -1,0 +1,6 @@
+export const servicesData = [
+    { title: 'Web Development', description: 'I offer full-stack web development services, creating complete online applications from the user-facing design to the powerful systems that make them run smoothly behind the scenes' },
+    { title: 'AI Integration', description: 'I integrate Artificial Intelligence (AI) into applications. This involves connecting to external AI services through APIs, or setting up and running AI models directly on systems. My goal is to add smart intelligent features to enhance software.' },
+    { title: 'Testing', description: 'I build automated testing solutions to ensure software quality and reliability. My focus is on creating robust test strategies that verify functionality, performance, and security before release.' },
+    { title: 'DevOps', description: 'I streamline software development and delivery. I build automated CI/CD pipelines to ensure efficient processes, consistent quality, and rapid, reliable software releases' },
+];
