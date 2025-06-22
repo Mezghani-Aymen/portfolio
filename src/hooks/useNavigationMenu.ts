@@ -16,7 +16,7 @@ const useNavigationMenu = () => {
             top: 0,
             behavior: 'smooth',
         });
-        setIsOpen(prev => !prev);
+        setIsOpen(false);
     };
 
     return {
