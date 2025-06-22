@@ -1,11 +1,9 @@
-import React from 'react'
-import { navBarList } from 'constants/navBarList'
-import NavbarItem from './NavbarItem'
-import useNavigationMenu from 'hooks/useNavigationMenu';
+import React from 'react';
+import { navBarList } from 'constants/navBarList';
+import NavbarItem from './NavbarItem';
+import { NavbarMobileProps } from 'types/navBarMobile';
 
-const NavbarMobile = () => {
-    const { scrollToTopAndCloseMenu, closeMenu } = useNavigationMenu();
-
+const NavbarMobile: React.FC<NavbarMobileProps> = ({ scrollToTopAndCloseMenu, closeMenu }) => {
     return (
         <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
             <ul className="flex flex-col items-center space-y-4 text-xl">
@@ -22,8 +20,7 @@ const NavbarMobile = () => {
                 ))}
             </ul>
         </div>
+    );
+};
 
-    )
-}
-
-export default NavbarMobile
+export default NavbarMobile;
