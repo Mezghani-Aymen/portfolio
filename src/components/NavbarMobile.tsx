@@ -1,8 +1,10 @@
 import React from 'react'
 import { navBarList } from 'constants/navBarList'
 import NavbarItem from './NavbarItem'
+import useNavigationMenu from 'hooks/useNavigationMenu';
 
 const NavbarMobile = () => {
+    const { scrollToTopAndCloseMenu, closeMenu } = useNavigationMenu();
 
     return (
         <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
