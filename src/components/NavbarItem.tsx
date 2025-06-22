@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-scroll';
-import { INavbarItemProps } from 'types/NavbarItem';
+import { INavbarItemProps } from 'types/navbarItem';
 
 const NavbarItem = (
     { path, label, smooth = true, duration = 500, onClick, className }: INavbarItemProps
