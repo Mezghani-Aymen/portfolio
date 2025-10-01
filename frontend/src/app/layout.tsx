@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Header from "../components/layout/Header/Header";
 import Footer from "../components/layout/Footer/Footer";
+import { SmoothCursor } from "../components/ui/SmoothCursor";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,6 +34,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <SmoothCursor />
       </body>
     </html>
   );
