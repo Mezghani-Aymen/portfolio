@@ -8,7 +8,6 @@ const MobileMenu = () => {
             <div className="p-4">
                 <Navbar className={'flex flex-col space-y-3'}
                     links={navBarList}
-                    linksClassName='text-center text-sm font-medium'
                 >
                 </Navbar>
             </div>
