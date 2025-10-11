@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-
 import {
     Cloud,
     fetchSimpleIcons,
@@ -52,7 +51,8 @@ export const renderCustomIcon = (icon: SimpleIcon) => {
             href: undefined,
             target: undefined,
             rel: undefined,
-            onClick: (e: any) => e.preventDefault(),
+            onClick: (e: React.MouseEvent<HTMLAnchorElement>) =>
+                e.preventDefault(),
         },
     });
 };
@@ -65,7 +65,6 @@ type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
     const [data, setData] = useState<IconData | null>(null);
-    const theme = "dark"
 
     useEffect(() => {
         fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
@@ -73,11 +72,10 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
 
     const renderedIcons = useMemo(() => {
         if (!data) return null;
-
         return Object.values(data.simpleIcons).map((icon) =>
-            renderCustomIcon(icon),
+            renderCustomIcon(icon)
         );
-    }, [data, theme]);
+    }, [data]);
 
     return (
         <Cloud {...cloudProps}>
