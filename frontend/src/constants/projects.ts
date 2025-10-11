@@ -32,6 +32,6 @@ const projects = [
         liveUrl: "https://shop.example.com",
         githubUrl: "https://github.com/your-repo/ecommerce",
     },
-] as const;
+];
 
 export default projects;
