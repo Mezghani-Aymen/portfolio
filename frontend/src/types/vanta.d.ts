@@ -1,6 +1,4 @@
 declare module "vanta/src/vanta.dots" {
-    import * as THREE from "three";
-
     interface VANTAOptions {
         el: HTMLElement | string;
         mouseControls?: boolean;
@@ -13,7 +11,7 @@ declare module "vanta/src/vanta.dots" {
         backgroundColor?: number;
         spacing?: number;
         showLines?: boolean;
-        [key: string]: any;
+        [key: string]: unknown;
     }
 
     export default function VANTA(options: VANTAOptions): {
