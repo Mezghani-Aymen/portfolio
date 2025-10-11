@@ -1,8 +1,7 @@
-
 const projects = [
     {
         index: "01",
-        type: "personal" as "personal",
+        type: "personal" as const,
         title: "Frontend Project",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat, faucibus et, et.",
@@ -14,7 +13,7 @@ const projects = [
     {
         index: "02",
         title: "Next.js Portfolio",
-        type: "internship" as "internship",
+        type: "internship" as const,
         description:
             "A fully responsive portfolio built with Next.js, Tailwind CSS and TypeScript.",
         techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -25,7 +24,7 @@ const projects = [
     {
         index: "03",
         title: "E-Commerce UI",
-        type: "personal" as "personal",
+        type: "personal" as const,
         description:
             "Pixel-perfect e-commerce interface with modern shopping cart and product filters.",
         techStack: ["React", "Redux Toolkit", "Tailwind CSS"],
@@ -33,6 +32,6 @@ const projects = [
         liveUrl: "https://shop.example.com",
         githubUrl: "https://github.com/your-repo/ecommerce",
     },
-];
+] as const;
 
-export default projects
+export default projects;
