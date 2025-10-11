@@ -9,7 +9,7 @@ import { useContext, Context } from "react";
  * @returns The context value
  */
 
-function getContextInstance<T>(context: Context<T | undefined>, componentName?: string): T {
+function useContextInstance<T>(context: Context<T | undefined>, componentName?: string): T {
     const value = useContext(context);
     if (value === undefined) {
         throw new Error(
@@ -19,4 +19,4 @@ function getContextInstance<T>(context: Context<T | undefined>, componentName?: 
     return value;
 }
 
-export default getContextInstance;
+export default useContextInstance;
