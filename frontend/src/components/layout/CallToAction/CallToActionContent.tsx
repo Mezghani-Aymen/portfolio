@@ -7,7 +7,7 @@ function CallToActionContent() {
                 Ready to Bring Your Vision to Life?
             </p>
             <p className="max-w-xl text-lg font-medium text-gray-300 ">
-                Let's collaborate on your next project and create something extraordinary together.
+                Let&apos;s collaborate on your next project and create something extraordinary together.
             </p>
             <a
                 href=""
