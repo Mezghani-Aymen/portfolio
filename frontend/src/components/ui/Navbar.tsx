@@ -5,11 +5,12 @@ import useActiveLink from "@/src/hooks/useActiveLink";
 import useNavbarActions from "@/src/hooks/useNavbarActions";
 import { useSectionScrollRestore } from "@/src/hooks/useSectionScrollRestore";
 import Link from "next/link";
+import { NavLinkItem } from "@/src/types/navbar.types";
 
 interface INavBarProps {
     children?: React.ReactNode;
     className: string;
-    links: any[];
+    links: NavLinkItem[];
 }
 
 const Navbar = ({ className, children, links }: INavBarProps) => {

@@ -37,7 +37,7 @@ export const cloudProps: Omit<ICloud, "children"> = {
     },
 };
 
-export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
+export const renderCustomIcon = (icon: SimpleIcon) => {
     const bgHex = "#080510";
     const fallbackHex = "#ffffff";
     const minContrastRatio = 2;
@@ -75,7 +75,7 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
         if (!data) return null;
 
         return Object.values(data.simpleIcons).map((icon) =>
-            renderCustomIcon(icon, theme || "light"),
+            renderCustomIcon(icon),
         );
     }, [data, theme]);
 

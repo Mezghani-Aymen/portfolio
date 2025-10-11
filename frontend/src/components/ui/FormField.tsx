@@ -2,7 +2,6 @@ interface FormFieldProps {
     label: string;
     type: "text" | "email" | "textarea" | "file";
     error?: string;
-    [x: string]: any;
 }
 
 export default function FormField({ label, type, error, ...rest }: FormFieldProps) {
