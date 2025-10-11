@@ -1,40 +1,47 @@
 import { useEffect } from "react";
 
-export function useVanta() {
-    useEffect(() => {
-        if (typeof window === "undefined") return;
+type VantaEffect = {
+  destroy: () => void;
+  resize: () => void;
+};
 
-        let vantaEffect: any;
+export function useVanta(): void {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-        const loadVanta = async () => {
-            const THREE = await import("three");
-            (window as any).THREE = THREE;
-            const DOTS = (await import("vanta/src/vanta.dots")).default;
+    let vantaEffect: VantaEffect | null = null;
 
-            vantaEffect = DOTS({
-                el: "#hero-bg",
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                scale: 1.0,
-                scaleMobile: 1.0,
-                color: 0xd76b30,
-                backgroundColor: 0x000000,
-                spacing: 17.0,
-                showLines: false,
-            });
+    const loadVanta = async () => {
+      // Dynamically import THREE and Vanta.DOTS
+      const THREE = await import("three");
+      (window as unknown as { THREE: typeof THREE }).THREE = THREE;
 
-            const handleResize = () => vantaEffect?.resize();
-            window.addEventListener("resize", handleResize);
-            window.addEventListener("orientationchange", handleResize);
+      const DOTS = (await import("vanta/src/vanta.dots")).default as (options: Record<string, unknown>) => VantaEffect;
 
-            setTimeout(() => vantaEffect?.resize(), 500);
-        };
+      vantaEffect = DOTS({
+        el: "#hero-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0xd76b30,
+        backgroundColor: 0x000000,
+        spacing: 17.0,
+        showLines: false,
+      });
 
-        loadVanta();
+      const handleResize = () => vantaEffect?.resize();
+      window.addEventListener("resize", handleResize);
+      window.addEventListener("orientationchange", handleResize);
 
-        return () => {
-            vantaEffect?.destroy();
-        };
-    }, []);
+      setTimeout(() => vantaEffect?.resize(), 500);
+    };
+
+    loadVanta();
+
+    return () => {
+      vantaEffect?.destroy();
+    };
+  }, []);
 }
