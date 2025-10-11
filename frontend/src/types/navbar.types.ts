@@ -6,7 +6,7 @@ export interface NavLinkItem {
     className?: string;
     smooth?: boolean;
     duration?: number;
-    type: LinkType;
+    type?: LinkType;
 }
 
 export interface INavBarProps {
