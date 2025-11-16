@@ -1,6 +1,10 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    output: "export",
+    images: { unoptimized: true },
 
-const nextConfig: NextConfig = {
+    basePath: "/portfolio",
+    assetPrefix: "/portfolio/"
 };
 
-export default nextConfig;
+module.exports = nextConfig;
