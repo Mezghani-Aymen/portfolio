@@ -8,9 +8,7 @@ const projects = [
         The system automates HR processes and includes a smart module that can automatically collect and organize data from selected websites while checking their legality.
         The project is deployed with Docker containers and built with a microservices architecture to make it easy to update, scale, and maintain.`,
         techStack: ["Next.js", "Spring Boot", "Keycloak", "MongoDB", "AI", "Python", "Docker", "Tailwind CSS"],
-        imageUrl: "/",
-        liveUrl: null,
-        githubUrl: null,
+        imageUrl: "/RH_dashbaord.png",
     },
     {
         title: "Web application for a Content Management System",
@@ -19,9 +17,7 @@ const projects = [
             `Developed and Implemented a Content Management System (CMS) featuring an intuitive admin dashboard to enable administrators to easily manage all website content.
             This solution included building secure user and administrator authentication utilizing Laravel's framework to provide essential role-based access controls.`,
         techStack: ["Laravel", "jQuery", "ajax", "SQL"],
-        imageUrl: "/",
-        liveUrl: null,
-        githubUrl: null,
+        imageUrl: "/CMS.png",
     },
     {
         title: "Promotional Landing Page for Microsoft Tech Club (MTC-ISIMS)",
