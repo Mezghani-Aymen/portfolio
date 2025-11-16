@@ -11,12 +11,23 @@ export default function ContactForm() {
     const { formData, handleChange, resetForm } = useContactForm();
     const { runVerification, steps, isRunning } = useVerificationFlow();
     const [showTerminal, setShowTerminal] = useState(false);
+    const FORM_ENDPOINT = process.env.NEXT_PUBLIC_Email_Sendler_PATH;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setShowTerminal(true);
         const result = await runVerification(formData);
-        if (result === "success") setTimeout(() => resetForm(), 800);
+        if (result === "success") {
+            await fetch(FORM_ENDPOINT ?? "", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+            setTimeout(() => resetForm(), 800);
+        }
     };
 
     return (
