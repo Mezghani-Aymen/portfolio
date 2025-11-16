@@ -1,8 +1,15 @@
 import { Download, FolderGit2 } from 'lucide-react';
 import React from 'react'
 import ProfileImage from './ProfileImage';
+import { Link as ScrollLink } from "react-scroll";
+import useActiveLink from '@/src/hooks/useActiveLink';
+import { usePathname } from 'next/navigation';
+import useNavbarActions from '@/src/hooks/useNavbarActions';
 
 function HeroContent() {
+    const pathname = usePathname();
+    const { setActiveLink } = useActiveLink({ pathname })
+    const { handleSetActive } = useNavbarActions({ setActiveLink });
     // const wordsArray = [
     //     "Full-Stack Developer",
     //     "DevOps Enthusiast & Testing",
@@ -56,15 +63,6 @@ function HeroContent() {
                         <span className='hidden sm:block'>Download</span>
                         <span className=''>CV</span>
                     </a>
-                    <a
-                        href="#projects"
-                        className="inline-flex items-center gap-2 bg-white text-[#D76B30] px-5 py-2 rounded-lg font-medium shadow-md hover:bg-gray-200 active:bg-gray-300 transition justify-center"
-                        aria-label="View Projects"
-                    >
-                        <FolderGit2 className="h-5 w-5" />
-                        Projects
-                    </a>
-
                     {/* <a
                         href="#projects"
                         className="sm:inline-flex items-center gap-2 bg-transparent border border-white text-white px-5 py-2 rounded-lg font-medium shadow-md hover:bg-[#D76B30] active:bg-[#D76B30] transition justify-center hidden"
@@ -73,6 +71,22 @@ function HeroContent() {
                         <FolderGit2 className="h-5 w-5" />
                         Projects
                     </a> */}
+                    <ScrollLink
+                        key={0}
+                        to={"projects"}
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        offset={-80}
+                        onSetActive={() => handleSetActive("projects")}
+                        className={`
+                            inline-flex items-center gap-2 bg-white text-[#D76B30] px-5 py-2 rounded-lg font-medium shadow-md hover:bg-gray-200 active:bg-gray-300 transition justify-center
+ `}
+
+                    >
+                        <FolderGit2 className="h-5 w-5" />
+                        Projects
+                    </ScrollLink>
                 </div>
             </div>
 
