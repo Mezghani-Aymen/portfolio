@@ -10,7 +10,7 @@ function CallToActionContent() {
                 Let&apos;s collaborate on your next project and create something extraordinary together.
             </p>
             <a
-                href=""
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-[#D76B30] text-white px-5 py-2 rounded-lg font-medium shadow-md hover:bg-[#b55220] active:bg-[#8a3d17] transition justify-center"
                 aria-label="Download CV"
             >
