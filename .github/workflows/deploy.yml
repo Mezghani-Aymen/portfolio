@@ -28,6 +28,8 @@ jobs:
       - name: Build Next.js
         run: npm run build
         working-directory: ./frontend
+        env:
+          NEXT_PUBLIC_EMAIL_SENDLER_PATH: ${{ secrets.NEXT_PUBLIC_EMAIL_SENDLER_PATH }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
