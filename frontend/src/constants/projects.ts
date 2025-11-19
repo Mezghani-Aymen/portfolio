@@ -37,7 +37,7 @@ const projects = [
         description:
             `Developed an engaging and interactive landing page for the CodeSell Hackathon. The page served as the central hub for event information, showcasing key details, speakers, and schedules.`,
         techStack: ["HTML", "CSS", "Javascript"],
-        imageUrl: "CodeSell.png",
+        imageUrl: "codeSell.png",
         liveUrl: "https://mezghani-aymen.github.io/CodeSell/",
         githubUrl: "https://github.com/Mezghani-Aymen/CodeSell",
     },
