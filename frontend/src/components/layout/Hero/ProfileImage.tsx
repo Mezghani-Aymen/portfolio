@@ -30,7 +30,7 @@ function ProfileImage() {
             {/* Profile Image */}
             <Image
                 filename="mezghani_mohamedAymen.png"
-                path="/"
+                path=""
                 alt="Profile Image"
                 priority={true}
                 className="w-full h-full object-cover rounded-t-[50%] z-[2]"

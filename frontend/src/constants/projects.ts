@@ -8,7 +8,7 @@ const projects = [
         The system automates HR processes and includes a smart module that can automatically collect and organize data from selected websites while checking their legality.
         The project is deployed with Docker containers and built with a microservices architecture to make it easy to update, scale, and maintain.`,
         techStack: ["Next.js", "Spring Boot", "Keycloak", "MongoDB", "AI", "Python", "Docker", "Tailwind CSS"],
-        imageUrl: "/RH_dashbaord.png",
+        imageUrl: "RH_dashbaord.png",
     },
     {
         title: "Web application for a Content Management System",
@@ -17,7 +17,7 @@ const projects = [
             `Developed and Implemented a Content Management System (CMS) featuring an intuitive admin dashboard to enable administrators to easily manage all website content.
             This solution included building secure user and administrator authentication utilizing Laravel's framework to provide essential role-based access controls.`,
         techStack: ["Laravel", "jQuery", "ajax", "SQL"],
-        imageUrl: "/CMS.png",
+        imageUrl: "CMS.png",
     },
     {
         title: "Promotional Landing Page for Microsoft Tech Club (MTC-ISIMS)",
@@ -27,7 +27,7 @@ const projects = [
             The page effectively promotes the club's activities and features streamlined interfaces for both event and membership registration.
             Built with modern standards using HTML, Tailwind CSS, and JavaScript.`,
         techStack: ["HTML", "CSS", "Javascript"],
-        imageUrl: "/MTC.png",
+        imageUrl: "MTC.png",
         liveUrl: "https://mezghani-aymen.github.io/MTC-landing-page/",
         githubUrl: "https://github.com/Mezghani-Aymen/MTC-landing-page",
     },
@@ -37,7 +37,7 @@ const projects = [
         description:
             `Developed an engaging and interactive landing page for the CodeSell Hackathon. The page served as the central hub for event information, showcasing key details, speakers, and schedules.`,
         techStack: ["HTML", "CSS", "Javascript"],
-        imageUrl: "/CodeSell.png",
+        imageUrl: "CodeSell.png",
         liveUrl: "https://mezghani-aymen.github.io/CodeSell/",
         githubUrl: "https://github.com/Mezghani-Aymen/CodeSell",
     },

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Mezghani Mohamed Aymen",
   description: "Portfolio",
   icons: {
-    icon: "/favicon.png",
+    icon: "favicon.png",
   },
 };
 
