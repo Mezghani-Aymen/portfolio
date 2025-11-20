@@ -54,7 +54,7 @@ function HeroContent() {
                 {/* Buttons */}
                 <div className="flex gap-4 mt-6">
                     <a
-                        href="/MezghaniMohamedAymen.pdf"
+                        href="/mezghanimohamedaymen_CV.pdf"
                         download="MezghaniMohamedAymen.pdf"
                         className="inline-flex items-center gap-2 bg-[#D76B30] text-white px-5 py-2 rounded-lg font-medium shadow-md hover:bg-[#b55220] active:bg-[#8a3d17] transition justify-center"
                         aria-label="Download CV"
