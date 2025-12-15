@@ -62,7 +62,7 @@ export default function ProjectShowcase() {
             {/* Right Image */}
             <div className="relative w-full rounded-xl overflow-hidden   border border-[var(--primary)]">
                 <Image
-                    src={project.imageUrl}
+                    src={"portfolio/project/" + project.imageUrl}
                     alt={project.title}
                     width={800}
                     height={600}
