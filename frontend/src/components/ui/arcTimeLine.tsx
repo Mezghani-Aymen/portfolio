@@ -3,6 +3,7 @@
 import { ComponentPropsWithoutRef, ReactNode, useState } from "react"
 
 import { cn } from "@/lib/utils"
+import ClickHint from "./ClickHint"
 
 export interface ArcTimelineItem {
     time: ReactNode
@@ -83,16 +84,16 @@ export function ArcTimeline(props: ArcTimelineProps) {
     const totalSteps = data.reduce((acc, item) => acc + item.steps.length, 0)
 
     const [activeIndex, setActiveIndex] = useState(() => {
-            let count = 0
+        let count = 0
         for (let i = 0; i < data.length; i++) {
             const timelineItem = data[i]
-                if (timelineItem.time === defaultActiveTime) {
-                    count += defaultActiveStepIndex
+            if (timelineItem.time === defaultActiveTime) {
+                count += defaultActiveStepIndex
                 return count
-                } else {
-                    count += timelineItem.steps.length
-                }
+            } else {
+                count += timelineItem.steps.length
             }
+        }
         return 0
     })
 
@@ -104,7 +105,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
 
     const handleNextStep = () => {
         setActiveIndex((prev) => Math.min(totalSteps - 1, prev + 1))
-        }
+    }
 
     return (
         <div
@@ -189,7 +190,31 @@ export function ArcTimeline(props: ArcTimelineProps) {
                                                             : "translate-y-[calc(100%_+_4px)] scale-100 text-[var(--icon-inactive-color,#a3a3a3)] dark:text-[var(--icon-inactive-color,#a3a3a3)]"
                                                     )}
                                                 >
+                                                    {isActive && activeIndex > 0 && (
+                                                        <div
+                                                            className="absolute -top-3 -left-20 sm:hidden"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handlePrevStep();
+                                                            }}
+                                                        >
+                                                            <ClickHint />
+                                                        </div>
+                                                    )}
+                                                    
                                                     {step.icon}
+                                                    
+                                                    {isActive && activeIndex < totalSteps - 1 && (
+                                                        <div
+                                                            className="absolute -top-3 -right-20 sm:hidden"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleNextStep();
+                                                            }}
+                                                        >
+                                                            <ClickHint />
+                                                        </div>
+                                                    )}
                                                 </div>
                                                 <div
                                                     className={cn(
