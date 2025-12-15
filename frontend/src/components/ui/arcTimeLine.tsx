@@ -59,7 +59,6 @@ interface ArcTimelineProps extends ComponentPropsWithoutRef<"div"> {
 export function ArcTimeline(props: ArcTimelineProps) {
     const {
         className,
-        children,
         data,
         arcConfig = {},
         defaultActiveStep = {},
@@ -74,27 +73,38 @@ export function ArcTimeline(props: ArcTimelineProps) {
     } = arcConfig
 
     const {
-        time: defaultActiveTime = data[0].time,
+        time: defaultActiveTime = data[0]?.time,
         stepIndex: defaultActiveStepIndex = 0,
     } = defaultActiveStep || {}
 
-    const [circleContainerRotateDeg, setCircleContainerRotateDeg] = useState(
-        () => {
+    const majorAngle = angleBetweenMinorSteps * (lineCountFillBetweenSteps + 1)
+    const boundaryAngle = angleBetweenMinorSteps * boundaryPlaceholderLinesCount
+
+    const totalSteps = data.reduce((acc, item) => acc + item.steps.length, 0)
+
+    const [activeIndex, setActiveIndex] = useState(() => {
             let count = 0
-            for (const timelineItem of data) {
+        for (let i = 0; i < data.length; i++) {
+            const timelineItem = data[i]
                 if (timelineItem.time === defaultActiveTime) {
                     count += defaultActiveStepIndex
-                    break
+                return count
                 } else {
                     count += timelineItem.steps.length
                 }
             }
-            return (
-                -1 * count * angleBetweenMinorSteps * (lineCountFillBetweenSteps + 1) -
-                angleBetweenMinorSteps * boundaryPlaceholderLinesCount
-            )
+        return 0
+    })
+
+    const circleContainerRotateDeg = -1 * (activeIndex * majorAngle + boundaryAngle)
+
+    const handlePrevStep = () => {
+        setActiveIndex((prev) => Math.max(0, prev - 1))
+    }
+
+    const handleNextStep = () => {
+        setActiveIndex((prev) => Math.min(totalSteps - 1, prev + 1))
         }
-    )
 
     return (
         <div
@@ -112,23 +122,21 @@ export function ArcTimeline(props: ArcTimelineProps) {
                     return (
                         <div key={`${lineIndex}`}>
                             {line.steps.map((step, stepIndex) => {
+                                // calc the global step index
+                                const globalStepIndex = data
+                                    .slice(0, lineIndex)
+                                    .reduce((sum, item) => sum + item.steps.length, 0) + stepIndex
+
                                 // calc the angle of the step
-                                const angle =
-                                    angleBetweenMinorSteps *
-                                    (lineCountFillBetweenSteps + 1) *
-                                    (data
-                                        .slice(0, lineIndex)
-                                        .map((item) => item.steps.length)
-                                        .reduce((prev, current) => prev + current, 0) +
-                                        stepIndex) +
-                                    angleBetweenMinorSteps * boundaryPlaceholderLinesCount
+                                const angle = majorAngle * globalStepIndex + boundaryAngle
+
                                 const isLastStep =
                                     lineIndex === data.length - 1 &&
                                     stepIndex === line.steps.length - 1
                                 const isFirstStep = lineIndex === 0 && stepIndex === 0
                                 // check if the step is active
-                                const isActive =
-                                    Math.abs(angle + circleContainerRotateDeg) < 0.01
+                                const isActive = activeIndex === globalStepIndex
+
                                 return (
                                     <div key={`${lineIndex}-${stepIndex}`}>
                                         {/* placeholder lines before the first step */}
@@ -158,7 +166,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
                                                 transform: `rotate(${angle}deg)`,
                                             }}
                                             onClick={() => {
-                                                setCircleContainerRotateDeg(-1 * angle)
+                                                setActiveIndex(globalStepIndex)
                                             }}
                                         >
                                             <div
@@ -170,8 +178,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
                                                 )}
                                                 style={{
                                                     transformOrigin: "center top",
-                                                    transform: `rotate(${-1 * angle - circleContainerRotateDeg
-                                                        }deg)`,
+                                                    transform: `rotate(${-angle - circleContainerRotateDeg}deg)`,
                                                 }}
                                             >
                                                 <div
@@ -291,8 +298,7 @@ function PlaceholderLines(props: PlaceholderLinesProps) {
                                 className="h-full w-full bg-[var(--placeholder-line-color,#a1a1a1)] dark:bg-[var(--placeholder-line-color,#737373)]"
                                 style={{
                                     transformOrigin: "center top",
-                                    transform: `rotate(${-1 * fillAngle - circleContainerRotateDeg
-                                        }deg)`,
+                                    transform: `rotate(${-fillAngle - circleContainerRotateDeg}deg)`,
                                 }}
                             ></div>
                         </div>
