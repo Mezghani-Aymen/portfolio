@@ -1,17 +1,12 @@
 "use client"
 
-import { ComponentPropsWithoutRef, ReactNode, useState } from "react"
+import { ComponentPropsWithoutRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 import ClickHint from "./ClickHint"
+import Icon from "./Icon"
+import { IArcTimelineItem } from "@/src/types/arcTimeLine.types"
 
-export interface ArcTimelineItem {
-    time: ReactNode
-    steps: Array<{
-        icon: ReactNode
-        content: ReactNode
-    }>
-}
 interface ArcTimelineProps extends ComponentPropsWithoutRef<"div"> {
     /**
      * Optional CSS class name to apply custom styles
@@ -20,7 +15,7 @@ interface ArcTimelineProps extends ComponentPropsWithoutRef<"div"> {
     /**
      * The data of the arc timeline
      */
-    data: ArcTimelineItem[]
+    data: IArcTimelineItem[]
     /**
      * The configuration of the arc timeline
      */
@@ -174,7 +169,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
                                                 className={cn(
                                                     "h-full w-full transition-colors duration-200",
                                                     isActive
-                                                        ? "bg-[var(--step-line-active-color,#888888)] dark:bg-[var(--step-line-active-color,#9780ff)]"
+                                                        ? "bg-[var(--step-line-active-color,#888888)] dark:bg-[var(--step-line-active-color,#D76B30)]"
                                                         : "bg-[var(--step-line-inactive-color,#b1b1b1)] dark:bg-[var(--step-line-inactive-color,#737373)]"
                                                 )}
                                                 style={{
@@ -201,9 +196,11 @@ export function ArcTimeline(props: ArcTimelineProps) {
                                                             <ClickHint />
                                                         </div>
                                                     )}
-                                                    
-                                                    {step.icon}
-                                                    
+
+                                                    <Icon IconType={step.icon} className={''} />
+
+
+
                                                     {isActive && activeIndex < totalSteps - 1 && (
                                                         <div
                                                             className="absolute -top-3 -right-20 sm:hidden"
@@ -223,7 +220,9 @@ export function ArcTimeline(props: ArcTimelineProps) {
                                                         isActive ? "opacity-100" : "opacity-0"
                                                     )}
                                                 >
-                                                    {step.content}
+                                                    <p>
+                                                        {step.content}
+                                                    </p>
                                                 </div>
                                             </div>
                                             {stepIndex === 0 && (
@@ -235,7 +234,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
                                                             : "text-[var(--time-inactive-color,#a3a3a3)] dark:text-[var(--time-inactive-color,#a3a3a3)]"
                                                     )}
                                                 >
-                                                    {line.time}
+                                                    <span className="font-semibold"> {line.time}</span>
                                                 </div>
                                             )}
                                         </div>
