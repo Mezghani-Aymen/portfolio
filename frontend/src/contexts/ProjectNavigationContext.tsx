@@ -12,6 +12,7 @@ interface ProjectNavigationContextValue {
     project: IProject;
     nextProject: () => void;
     prevProject: () => void;
+    projects: IProject[];
 }
 
 const ProjectNavigationContext = createContext<ProjectNavigationContextValue | null>(null);
