@@ -14,5 +14,5 @@ export function useProjectNavigation(projects: IProject[]) {
 
     const project = projects[current];
 
-    return { current, project, nextProject, prevProject };
+    return { current, project, nextProject, prevProject, projects };
 }
