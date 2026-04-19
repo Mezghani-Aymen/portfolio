@@ -1,42 +1,76 @@
-import React from "react";
-import Image from "@/components/ui/Image";
+'use client';
 
-function ProfileImage() {
+import React, { useRef } from 'react';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
+
+// Components
+import ProfileGlow from '../../ui/Profile/ProfileGlow';
+import ProfileOrbit from '../../ui/Profile/ProfileOrbit';
+import FloatingExperienceTag from '../../ui/FloatingActions/FloatingExperienceTag';
+
+interface ProfileImageProps {
+    src: string;
+    className?: string;
+}
+
+const ProfileImage: React.FC<ProfileImageProps> = ({ src, className }) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!containerRef.current) return;
+        const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+        const x = (e.clientX - left) / width - 0.5;
+        const y = (e.clientY - top) / height - 0.5;
+
+        containerRef.current.style.setProperty('--mouse-x', `${x * 40}px`);
+        containerRef.current.style.setProperty('--mouse-y', `${y * 40}px`);
+    };
+
+    const handleMouseLeave = () => {
+        if (!containerRef.current) return;
+        containerRef.current.style.setProperty('--mouse-x', '0px');
+        containerRef.current.style.setProperty('--mouse-y', '0px');
+    };
+
     return (
         <div
-            className="
-        relative 
-        w-full 
-        max-w-80
-        aspect-square 
-        rounded-t-[50%] 
-        bg-gradient-to-br from-[#D76B30] to-[#A3C4E0] 
-        flex justify-center items-center
-      "
-            data-aos="zoom-out-left"
-            data-aos-delay="400"
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            className={cn(
+                "relative w-72 h-96 sm:w-80 sm:h-[480px] group perspective-1000",
+                className
+            )}
+            style={{
+                '--mouse-x': '0px',
+                '--mouse-y': '0px'
+            } as React.CSSProperties}
         >
-            {/* Overlay */}
-            <div
-                className="
-          absolute top-0 left-0 
-          w-full h-full 
-          bg-[rgba(245,229,213,0.5)] 
-          z-[1]
-          rounded-t-[50%]
-        "
-            > </div>
+            <ProfileGlow />
+            <ProfileOrbit />
 
-            {/* Profile Image */}
-            <Image
-                filename="mezghani_mohamedAymen.png"
-                path=""
-                alt="Profile Image"
-                priority={true}
-                className="w-full h-full object-cover rounded-t-[50%] z-[2]"
-            />
+            {/* Main Image Container */}
+            <div
+                className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 bg-gray-900 shadow-2xl z-20 transition-transform duration-300 ease-out"
+                style={{
+                    transform: 'translate(var(--mouse-x), var(--mouse-y))'
+                }}
+            >
+                <div className="absolute inset-0 bg-gradient-to-tr from-[var(--primary)]/10 via-transparent to-white/5 z-30 pointer-events-none" />
+
+                <Image
+                    src={src}
+                    alt="Profile Portrait"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    priority
+                />
+            </div>
+
+            <FloatingExperienceTag />
         </div>
     );
-}
+};
 
 export default ProfileImage;
