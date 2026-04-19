@@ -11,15 +11,13 @@ const Principle: React.FC = () => {
             className={`
                 py-6
                 grid 
-                gap-6 
-                transition-all 
-                duration-300
+                gap-8 
                 grid-cols-1  
-                md:grid-cols-3 md:gap-8  `}
+                md:grid-cols-3`}
         >
             {
                 principles.map((feature, idx) => (
-                    <PrincipleCard key={idx} {...feature} />
+                    <PrincipleCard key={idx} index={idx} {...feature} />
                 ))
             }
         </div >
