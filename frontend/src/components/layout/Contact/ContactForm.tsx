@@ -11,14 +11,14 @@ export default function ContactForm() {
     const { formData, handleChange, resetForm } = useContactForm();
     const { runVerification, steps, isRunning } = useVerificationFlow();
     const [showTerminal, setShowTerminal] = useState(false);
-    const FORM_ENDPOINT = process.env.NEXT_PUBLIC_Email_Sendler_PATH ?? "https://formspree.io/f/mqawgoba";
+   // const FORM_ENDPOINT = process.env.NEXT_PUBLIC_Email_Sendler_PATH ?? "https://formspree.io/f/mqawgoba";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setShowTerminal(true);
         const result = await runVerification(formData);
         if (result === "success") {
-            await fetch(FORM_ENDPOINT ?? "", {
+            await fetch("https://formspree.io/f/mqawgoba", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
