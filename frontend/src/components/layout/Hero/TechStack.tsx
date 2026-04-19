@@ -1,6 +1,9 @@
+import { itemVariants } from "@/src/animations/heroAnimations";
+import { motion } from "framer-motion";
+
 export default function TechStack({ techBadges }: { techBadges: string[] }) {
     return (
-        <div className="flex flex-wrap gap-3">
+        <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
             {techBadges.map((tech) => (
                 <span
                     key={tech}
@@ -9,6 +12,6 @@ export default function TechStack({ techBadges }: { techBadges: string[] }) {
                     {tech}
                 </span>
             ))}
-        </div>
+        </motion.div>
     );
 }
