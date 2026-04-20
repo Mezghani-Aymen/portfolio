@@ -3,6 +3,11 @@ export enum ProjectType {
     Personal = "personal"
 }
 
+export interface SharedLinks {
+    github?: string;
+    liveUrl?: string;
+}
+
 interface BaseProject {
     title: string;
     description: string;
@@ -19,8 +24,7 @@ interface BaseProject {
 
 export interface PersonalProject extends BaseProject {
     type: ProjectType.Personal;
-    liveUrl: string;
-    githubUrl: string;
+    sharedLink: SharedLinks;
 }
 
 export interface InternalProject extends BaseProject {
