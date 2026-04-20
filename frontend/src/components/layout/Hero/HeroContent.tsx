@@ -65,7 +65,7 @@ export default function HeroContent() {
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                 className="lg:w-2/5 flex justify-center lg:justify-end"
             >
-                <ProfileImage src="/images/mezghani_mohamedAymen.png" />
+                <ProfileImage src="images/mezghani_mohamedAymen.png" />
             </motion.div>
         </div>
     );
