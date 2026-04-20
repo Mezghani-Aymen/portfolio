@@ -7,7 +7,7 @@ export default function HeroActions({ onProjectsActive }: { onProjectsActive: ()
     return (
         <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
             <a
-                href="/mezghanimohamedaymen_CV.pdf"
+                href="mezghanimohamedaymen_CV.pdf"
                 download="MezghaniMohamedAymen.pdf"
                 className="group relative inline-flex items-center gap-2 bg-[var(--primary)] text-white px-8 py-3 rounded-xl font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[var(--primary)]/20"
                 aria-label="Download CV"
