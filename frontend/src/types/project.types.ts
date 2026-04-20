@@ -4,8 +4,8 @@ export enum ProjectType {
 }
 
 export interface SharedLinks {
-    github?: string;
-    liveUrl?: string;
+    github: string;
+    liveUrl: string;
 }
 
 interface BaseProject {
