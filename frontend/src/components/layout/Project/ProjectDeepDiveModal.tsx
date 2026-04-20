@@ -45,7 +45,7 @@ const ProjectDeepDiveModal: React.FC<ProjectDeepDiveModalProps> = ({ project, on
                     {/* Hero Header */}
                     <div className="relative h-48 sm:h-64 w-full">
                         <Image
-                            src={"/project/" + project.imageUrl}
+                            src={"project/" + project.imageUrl}
                             alt={project.title}
                             fill
                             className="object-cover opacity-40"
