@@ -1,28 +1,38 @@
-import { Briefcase, Code, Award, CheckCircle } from "lucide-react"
+import { Briefcase, Code, GraduationCap, Boxes, Calendar, Cpu, Globe, LayoutDashboard, Search, ShieldCheck, Trophy, Users } from "lucide-react"
 import { IArcTimelineItem } from "../types/arcTimeLine.types"
 
 export const timelineData: IArcTimelineItem[] = [
     {
+        time: "2026",
+        steps: [
+            {
+                icon: GraduationCap,
+                content: "Currently an engineering student in computer science",
+            },
+        ],
+    },
+    {
         time: "2025",
         steps: [
             {
-                icon: Code,
-                content:
-                    "Started building a full-stack HR platform using Next.js and NestJS.",
+                icon: Briefcase,
+                content: "Worked as a web developer intern at PivaSoftware",
             },
             {
-                icon: Briefcase,
-                content:
-                    "Designed microservices architecture and implemented authentication and authorization.",
+                icon: Cpu,
+                content: "Built an HR web app with AI-powered",
             },
             {
-                icon: Briefcase,
-                content:
-                    "Led backend architecture decisions and improved system scalability.",
+                icon: ShieldCheck,
+                content: "Implemented secure authentication using Keycloak and JWT",
             },
             {
-                icon: Briefcase,
-                content: "Delivered production-ready features and APIs.",
+                icon: Boxes,
+                content: "Deployed a microservices system using Docker",
+            },
+            {
+                icon: GraduationCap,
+                content: "Graduated with a Bachelor's degree in Computer Science (ISIMS)",
             },
         ],
     },
@@ -30,14 +40,24 @@ export const timelineData: IArcTimelineItem[] = [
         time: "2024",
         steps: [
             {
-                icon: Award,
-                content:
-                    "Earned certifications in Web Development and Cloud Fundamentals.",
+                icon: Briefcase,
+                content: "Completed a web development internship building a CMS",
             },
             {
-                icon: CheckCircle,
-                content:
-                    "Participated in tech clubs and hackathons focused on real-world problem solving.",
+                icon: LayoutDashboard,
+                content: "Created an admin dashboard for content management",
+            },
+            {
+                icon: Users,
+                content: "Led the web team at Google Student Club ISIMS",
+            },
+            {
+                icon: Trophy,
+                content: "Participated in Microsoft Technologies Camp as a prototype designer",
+            },
+            {
+                icon: Code,
+                content: "Developed a hackathon dashboard with a team",
             },
         ],
     },
@@ -45,9 +65,20 @@ export const timelineData: IArcTimelineItem[] = [
         time: "2023",
         steps: [
             {
-                icon: Code,
-                content:
-                    "Built multiple React projects and learned TypeScript best practices.",
+                icon: Globe,
+                content: "Built a website for Microsoft Tech Club ISIMS",
+            },
+            {
+                icon: Calendar,
+                content: "Created a landing page for CodeSell hackathon",
+            },
+            {
+                icon: Users,
+                content: "Organized a hackathon and managed participants",
+            },
+            {
+                icon: Search,
+                content: "Worked as a data researcher at AIESEC event",
             },
         ],
     },
