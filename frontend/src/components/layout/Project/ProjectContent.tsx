@@ -25,7 +25,7 @@ function ProjectContent() {
                     >
                         <div className="aspect-video relative overflow-hidden">
                             <Image
-                                src={"/project/" + project.imageUrl}
+                                src={"project/" + project.imageUrl}
                                 alt={project.title}
                                 fill
                                 className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
