@@ -1,9 +1,11 @@
 "use client"
+
+import React, { useState } from "react";
 import ContactForm from "@/src/components/layout/Contact/ContactForm";
 import Section from "@/src/components/ui/Section";
-import { Briefcase, ChevronDown, ChevronUp, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
+import { Briefcase, ChevronDown, Mail, MapPin, Phone, Code, Zap, Heart, MessageCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type ContactItemProps = {
     icon: React.ReactNode;
@@ -32,39 +34,39 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, label, value }) => {
     );
 };
 
-
-
 type FaqItemType = {
     id: string;
     q: string;
     a: string;
+    icon: React.ElementType;
 };
-
 
 const faqs: FaqItemType[] = [
     {
         id: "t1",
-        q: "What technologies do you work with?",
-        a: "I mainly use modern web technologies like React, Next.js, Nest.js, and TypeScript.",
+        q: "What is your primary tech stack?",
+        a: "I specialize in modern web ecosystems, primarily using React, Next.js, and TypeScript for frontends, paired with Node.js/NestJS or Python for robust backends.",
+        icon: Code,
     },
     {
         id: "t2",
-        q: "Do you offer revisions?",
-        a:
-            "Yes — typically I include 4–6 rounds of revisions to ensure you’re satisfied with the final outcome.",
+        q: "What is your development philosophy?",
+        a: "I believe in writing clean, maintainable code and prioritizing user experience. Every line of code should serve a purpose and every pixel should add value to the user.",
+        icon: Heart,
     },
     {
         id: "t3",
-        q: "Are you open to remote collaboration?",
-        a: "Yes, I can work remotely, on-site, or in a hybrid mode depending on project needs.",
+        q: "How do you handle project collaboration?",
+        a: "I’m a strong advocate for clear communication. I use Git for version control and am comfortable working in Agile environments, whether remotely or in hybrid settings.",
+        icon: Zap,
     },
     {
         id: "t4",
-        q: "How do you ensure code quality?",
-        a: "I follow clean code practices, use version control (Git), and write tests to maintain quality and scalability.",
+        q: "Can you help with existing projects?",
+        a: "Absolutely! I have extensive experience jumping into established codebases, helping with bug fixes, performance optimizations, and feature expansions.",
+        icon: MessageCircle,
     },
 ];
-
 
 const FaqItem: React.FC<{
     item: FaqItemType;
@@ -72,30 +74,54 @@ const FaqItem: React.FC<{
     onToggle: (id: string) => void;
 }> = ({ item, expanded, onToggle }) => {
     return (
-        <div className="rounded-lg bg-white/3 dark:bg-white/4 p-4 shadow-sm">
+        <div className={cn(
+            "rounded-xl transition-all duration-300",
+            "bg-white/5 backdrop-blur-md border border-white/10 hover:border-[var(--primary)]/30 shadow-lg",
+            expanded && "border-[var(--primary)]/40 bg-white/10"
+        )}>
             <button
-                className="w-full flex items-center justify-between gap-4"
+                className="w-full flex items-center justify-between gap-4 p-5 py-6"
                 aria-expanded={expanded}
                 aria-controls={`faq-panel-${item.id}`}
                 onClick={() => onToggle(item.id)}
             >
-                <span className="text-left text-sm font-semibold text-gray-100 dark:text-gray-100">
-                    {item.q}
-                </span>
-                <span className="flex items-center gap-3 text-gray-200 dark:text-gray-200">
-                    {expanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                <div className="flex items-center gap-4">
+                    <div className={cn(
+                        "p-2 rounded-lg transition-colors",
+                        expanded ? "bg-[var(--primary)] text-white" : "bg-white/5 text-[var(--primary)]"
+                    )}>
+                        <item.icon size={18} />
+                    </div>
+                    <span className="text-left text-sm font-semibold text-gray-100 dark:text-gray-100">
+                        {item.q}
+                    </span>
+                </div>
+                <span className={cn(
+                    "flex items-center justify-center w-8 h-8 rounded-full transition-transform duration-300",
+                    expanded ? "bg-[var(--primary)]/20 text-[var(--primary)] rotate-180" : "bg-white/5 text-gray-400"
+                )}>
+                    <ChevronDown size={18} />
                 </span>
             </button>
 
-            <div
-                id={`faq-panel-${item.id}`}
-                role="region"
-                aria-hidden={!expanded}
-                className={`mt-3 text-sm text-gray-300 dark:text-gray-300 transition-[max-height,opacity] duration-300 overflow-hidden ${expanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                    }`}
-            >
-                {item.a}
-            </div>
+            <AnimatePresence initial={false}>
+                {expanded && (
+                    <motion.div
+                        id={`faq-panel-${item.id}`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                        className="overflow-hidden"
+                    >
+                        <div className="px-5 pb-6 pt-0 text-sm leading-relaxed text-gray-300 border-t border-white/5 mt-[-1px]">
+                            <p className="pt-4 border-t border-white/5 opacity-80 italic">
+                                {item.a}
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
@@ -165,8 +191,7 @@ export default function ContactPage() {
                     <ContactForm />
                 </div>
             </Section>
-
-            <Section className="w-full  flex items-center justify-center bg-gray-950">
+            <Section className="w-full  flex items-center justify-center  overflow-hidden text-center sm:px-0 px-5 border-y border-white/5 bg-zinc-950/20 backdrop-blur-sm">
 
 
                 {/* ----------------------- FAQ Section ----------------------- */}
