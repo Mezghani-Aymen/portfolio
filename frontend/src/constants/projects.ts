@@ -111,7 +111,7 @@ const projects: IProject[] = [
         description:
             `Developed an engaging and interactive landing page for the CodeSell Hackathon. The page served as the central hub for event information, showcasing key details, and schedules.`,
         techStack: ["HTML", "Tailwind CSS", "JavaScript"],
-        imageUrl: "codeSell.png",
+        imageUrl: "CodeSell.png",
         sharedLink: {
             liveUrl: "https://mezghani-aymen.github.io/CodeSell/",
             github: "https://github.com/Mezghani-Aymen/CodeSell",
