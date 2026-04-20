@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp, Bot } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import ChatWindow from './ChatWindow';
+// import ChatWindow from './ChatWindow';
 
 const FloatingActions = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [isChatOpen, setIsChatOpen] = useState(false);
+    // const [isChatOpen, setIsChatOpen] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
@@ -47,27 +47,7 @@ const FloatingActions = () => {
 
     return (
         <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-4 p-4 pointer-events-none">
-            {/* Mobile Backdrop Overlay */}
-            <AnimatePresence>
-                {isChatOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setIsChatOpen(false)}
-                        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[-1] pointer-events-auto sm:hidden"
-                    />
-                )}
-            </AnimatePresence>
-
-            {/* Chat Window Container */}
-            <div className="pointer-events-auto mb-2 relative z-[70]">
-                <AnimatePresence>
-                    {isChatOpen && (
-                        <ChatWindow onClose={() => setIsChatOpen(false)} />
-                    )}
-                </AnimatePresence>
-            </div>
+            {/* TODO: Add chat window */}
 
             <div className="flex flex-col items-center gap-4 pointer-events-auto">
                 <AnimatePresence>
