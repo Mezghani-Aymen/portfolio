@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Section from "../../ui/Section";
-import BackgroundLayer from "../../ui/BackgroundLayer";
+import Section from "@/components/ui/Section";
+import BackgroundLayer from "@/components/ui/BackgroundLayer";
 import HeroContent from "./HeroContent";
 import { useVanta } from "@/src/hooks/useVanta";
 

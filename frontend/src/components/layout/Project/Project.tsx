@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import Section from '../../ui/Section';
-import ProjectContent from './ProjectContent';
+import Section from '@/components/ui/Section';
+import ProjectContent from '@/components/layout/Project/ProjectContent';
 import { motion } from 'framer-motion';
 
 const Projects = () => {

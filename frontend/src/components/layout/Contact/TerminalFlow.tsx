@@ -1,5 +1,5 @@
 import React from 'react'
-import { Terminal, TypingAnimation, AnimatedSpan } from "../../ui/Terminal"
+import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/ui/Terminal"
 
 interface ITerminalFlowProps {
     steps: {

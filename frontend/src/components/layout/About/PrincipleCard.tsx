@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react'
-import Icon from '../../ui/Icon';
+import Icon from '@/components/ui/Icon';
 import { motion } from 'framer-motion';
 
 interface IPrincipleCardProps {

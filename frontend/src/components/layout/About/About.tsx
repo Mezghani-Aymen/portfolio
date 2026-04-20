@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react';
-import Section from '../../ui/Section';
-import AboutContent from './AboutContent';
-import { ArcTimeline } from '../../ui/arcTimeLine';
+import Section from '@/components/ui/Section';
+import AboutContent from '@/components/layout/About/AboutContent';
+import { ArcTimeline } from '@/components/ui/arcTimeLine';
 import { timelineData } from '@/src/constants/arcTimeLine';
 import { motion } from 'framer-motion';
 

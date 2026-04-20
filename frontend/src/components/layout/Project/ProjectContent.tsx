@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import { Info, ExternalLink, Cpu } from 'lucide-react';
 import Image from 'next/image';
 import { IProject, ProjectType } from '@/src/types/project.types';
-import ProjectDeepDiveModal from './ProjectDeepDiveModal';
-import ProjectLinkButton from './ProjectLinkButton';
-import { Tooltip } from '../../ui/Tooltip';
+import ProjectDeepDiveModal from '@/components/layout/Project/ProjectDeepDiveModal';
+import ProjectLinkButton from '@/components/layout/Project/ProjectLinkButton';
+import { Tooltip } from '@/components/ui/Tooltip';
 
 
 

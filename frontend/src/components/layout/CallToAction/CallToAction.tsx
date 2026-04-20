@@ -1,7 +1,7 @@
 import React from 'react'
-import { Ripple } from '../../ui/Ripple'
-import CallToActionContent from './CallToActionContent'
-import Section from '../../ui/Section'
+import { Ripple } from '@/components/ui/Ripple'
+import CallToActionContent from '@/components/layout/CallToAction/CallToActionContent'
+import Section from '@/components/ui/Section'
 
 export default function CallToAction() {
   return (

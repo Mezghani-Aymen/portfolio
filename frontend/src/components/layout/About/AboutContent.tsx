@@ -1,10 +1,10 @@
 "use client";
 
 import React from 'react'
-import Principle from './Principle'
+import Principle from '@/components/layout/About/Principle'
 import { motion } from 'framer-motion'
 import { Rocket } from 'lucide-react';
-import FocusAreas from './FocusAreas';
+import FocusAreas from '@/components/layout/About/FocusAreas';
 
 export default function AboutContent() {
     return (

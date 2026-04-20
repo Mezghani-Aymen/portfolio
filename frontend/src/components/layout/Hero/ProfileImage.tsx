@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 // Components
-import ProfileGlow from '../../ui/Profile/ProfileGlow';
-import ProfileOrbit from '../../ui/Profile/ProfileOrbit';
-import FloatingExperienceTag from '../../ui/FloatingActions/FloatingExperienceTag';
+import ProfileGlow from '@/components/ui/Profile/ProfileGlow';
+import ProfileOrbit from '@/components/ui/Profile/ProfileOrbit';
+import FloatingExperienceTag from '@/components/ui/FloatingActions/FloatingExperienceTag';
 
 interface ProfileImageProps {
     src: string;

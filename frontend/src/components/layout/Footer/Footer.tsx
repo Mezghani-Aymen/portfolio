@@ -1,5 +1,5 @@
-import { Logo } from "../../ui/Logo";
-import SocialsMedia from "./SocialsMedia";
+import { Logo } from "@/components/ui/Logo";
+import SocialsMedia from "@/components/layout/Footer/SocialsMedia";
 
 export default function Footer() {
     return (

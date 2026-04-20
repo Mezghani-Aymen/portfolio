@@ -2,7 +2,7 @@
 
 import React from "react";
 import { principles } from "@/src/constants/principles";
-import { PrincipleCard } from "./PrincipleCard";
+import { PrincipleCard } from "@/src/components/layout/About/PrincipleCard";
 
 const Principle: React.FC = () => {
 

@@ -4,8 +4,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProjectNavigationContext } from "@/src/contexts/ProjectNavigationContext";
 import { ProjectType } from "@/src/types/project.types";
-import CompanyInfo from "./CompanyInfo";
-import ProjectLinks from "./ProjectLinks";
+import CompanyInfo from "@/components/layout/Project/CompanyInfo";
+import ProjectLinks from "@/components/layout/Project/ProjectLinks";
 
 export default function ProjectShowcasePremium() {
     const { current, project } = useProjectNavigationContext();

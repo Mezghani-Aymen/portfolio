@@ -1,7 +1,7 @@
 "use client";
 
-import OptimizingLoader from "../ui/OptimizerLoader";
-import AppLayout from "./AppLayout";
+import OptimizingLoader from "@/components/ui/OptimizerLoader";
+import AppLayout from "@/components/layout/AppLayout";
 import useAppLoader from "@/hooks/useAppLoader";
 
 export default function AppBootstrap({ children }: { children: React.ReactNode }) {

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import dynamic from "next/dynamic";
-import Section from '../../ui/Section';
+import Section from '@/components/ui/Section';
 import { skillsList } from '@/src/constants/skills';
 import { motion } from 'framer-motion';
 
