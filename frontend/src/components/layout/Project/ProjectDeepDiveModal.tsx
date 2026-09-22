@@ -3,9 +3,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, AlertCircle, TrendingUp, Cpu } from 'lucide-react';
-import { IProject } from '@/src/types/project.types';
+import { IProject, ProjectType } from '@/src/types/project.types';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import CompanyInfo from './CompanyInfo';
 
 interface ProjectDeepDiveModalProps {
     project: IProject | null;
@@ -25,7 +26,7 @@ const ProjectDeepDiveModal: React.FC<ProjectDeepDiveModalProps> = ({ project, on
     return (
         <AnimatePresence>
             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto modal-scroll-color ">
-                
+
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -128,10 +129,17 @@ const ProjectDeepDiveModal: React.FC<ProjectDeepDiveModalProps> = ({ project, on
                                 ))}
                             </div>
                         </section>
+
+                        {
+                            project.type == ProjectType.Internal ?
+                                <CompanyInfo project={project} />
+                                :
+                                <></>
+                        }
                     </div>
                 </motion.div>
-            </div>
-        </AnimatePresence>
+            </div >
+        </AnimatePresence >
     );
 };
 
