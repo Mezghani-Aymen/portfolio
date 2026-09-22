@@ -40,7 +40,7 @@ function ProjectContent() {
                                     <h3>Technical Infrastructure</h3>
                                 </div>
                                 <p className="text-blue-400 leading-relaxed italic font-bold">
-                                    {project.deepDive?.architecture ?? "Hello word"}
+                                    {project.deepDive?.architecture ?? "Not available"}
                                 </p>
                             </div>
 
