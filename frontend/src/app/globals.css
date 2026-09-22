@@ -109,6 +109,7 @@
 body {
   background: black;
   color: white;
+  
 }
 
 @layer base {
@@ -116,6 +117,7 @@ body {
     box-sizing: border-box;
     @apply border-border outline-ring/50;
     cursor: none !important;
+    
   }
 
   body {
@@ -145,6 +147,11 @@ body {
   }
 }
 
+
 .animate-click-pulse {
   animation: click-pulse 1.4s ease-in-out infinite;
+}
+
+.modal-scroll-color {
+  scrollbar-color: var(--primary-25) var(--foreground);
 }
